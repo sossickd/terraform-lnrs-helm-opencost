@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    assignees:
+      - LexisNexis-RBA/iog-systems-engineering
+  - package-ecosystem: terraform
+    directory: /
+    schedule:
+      interval: daily
+    labels:
+      - chore
+      - update
+    assignees:
+      - LexisNexis-RBA/iog-systems-engineering
