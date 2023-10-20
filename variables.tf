@@ -57,7 +57,6 @@ variable "ingress_annotations" {
   description = "The annotations for ingress resources."
   type        = map(string)
   nullable    = true
-  default     = {}
 }
 
 variable "ingress_hostname" {
