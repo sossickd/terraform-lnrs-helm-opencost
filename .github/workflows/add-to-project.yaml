@@ -14,5 +14,5 @@ jobs:
       - name: Add Issue
         uses: actions/add-to-project@960fbad431afda394cfcf8743445e741acd19e85
         with:
-          project-url: https://github.com/orgs/LexisNexis-RBA/projects/55
+          project-url: https://github.com/orgs/sossickd/projects/55
           github-token: ${{ secrets.SECRET }}

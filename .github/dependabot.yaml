@@ -5,7 +5,7 @@ updates:
     schedule:
       interval: daily
     assignees:
-      - LexisNexis-RBA/iog-systems-engineering
+      - sossickd/iog-systems-engineering
   - package-ecosystem: terraform
     directory: /
     schedule:
@@ -14,4 +14,4 @@ updates:
       - chore
       - update
     assignees:
-      - LexisNexis-RBA/iog-systems-engineering
+      - sossickd/iog-systems-engineering

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This module installs the [Opencost](https://www.opencost.io/) [Helm chart](https://github.com/opencost/opencost-helm-chart) onto a _Kubernetes_ cluster that has been created by the [AWS-EKS terraform module](https://github.com/LexisNexis-RBA/rsg-terraform-aws-eks) or the [AKS terraform module](https://github.com/LexisNexis-RBA/terraform-azurerm-aks)
+This module installs the [Opencost](https://www.opencost.io/) [Helm chart](https://github.com/opencost/opencost-helm-chart) onto a _Kubernetes_ cluster that has been created by the [AWS-EKS terraform module](https://github.com/sossickd/rsg-terraform-aws-eks) or the [AKS terraform module](https://github.com/sossickd/terraform-azurerm-aks)
 
 ### Example
 

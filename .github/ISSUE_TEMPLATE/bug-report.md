@@ -19,7 +19,7 @@ Please answer the following questions for yourself before submitting a bug repor
 
 - [ ] I am running the latest (or a supported) version
 - [ ] I checked the documentation and this isn't the expected behaviour
-- [ ] I checked to see if there were any existing [discussions](https://github.com/LexisNexis-RBA/rsg-kubernetes/discussions) about this bug
+- [ ] I checked to see if there were any existing [discussions](https://github.com/sossickd/rsg-kubernetes/discussions) about this bug
 - [ ] I checked to make sure that this bug hasn't already been reported
 
 ## Expected Behaviour

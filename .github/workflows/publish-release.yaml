@@ -8,7 +8,7 @@ on:
 jobs:
   workflow:
     name: Reusable Workflow
-    uses: LexisNexis-RBA/rsg-gh-workflows-terraform/.github/workflows/module-publish-release.yaml@main
+    uses: sossickd/rsg-gh-workflows-terraform/.github/workflows/module-publish-release.yaml@main
     secrets: inherit
     with:
-      module_name: terraform-kubernetes-ingress-nginx
+      module_name: terraform-lnrs-helm-opencost

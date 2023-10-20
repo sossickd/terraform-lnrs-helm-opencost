@@ -55,7 +55,7 @@ git push
 
 ### Open PR
 
-Open a [PR](https://github.com/LexisNexis-RBA/rsg-terraform-kubernetes-ingress-nginx/pulls) to merge the release branch in the `main` branch and add it to the release milestone. Add any additional content for the release to the PR. Assign yourself and add a reviewer; if you don;t have the correct permissions to merge the changes and create the tag you will need to add another assignee after the PR has been approved.
+Open a [PR](https://github.com/sossickd/rsg-terraform-lnrs-helm-opencost/pulls) to merge the release branch in the `main` branch and add it to the release milestone. Add any additional content for the release to the PR. Assign yourself and add a reviewer; if you don;t have the correct permissions to merge the changes and create the tag you will need to add another assignee after the PR has been approved.
 
 ### Merge PR
 
@@ -74,7 +74,7 @@ git push origin v1.1.0
 
 ### Wait For Release
 
-The release automation will be created as a [GitHub Action](https://github.com/LexisNexis-RBA/rsg-terraform-kubernetes-ingress-nginx/actions/workflows/publish-release.yaml) which when it succeeds will create the GitHub release for the tag.
+The release automation will be created as a [GitHub Action](https://github.com/sossickd/rsg-terraform-lnrs-helm-opencost/actions/workflows/publish-release.yaml) which when it succeeds will create the GitHub release for the tag.
 
 ### Sync release to GitLab
 
@@ -94,8 +94,8 @@ The release automation will be created as a [GitHub Action](https://github.com/L
 > ```shell
 > gitlab  git@gitlab.b2b.regn.net:terraform/official-modules/k8s/terraform-lnrs-k8s-ingress-nginx.git (fetch)
 > gitlab  git@gitlab.b2b.regn.net:terraform/official-modules/k8s/terraform-lnrs-k8s-ingress-nginx.git (push)
-> origin  git@github.com:LexisNexis-RBA/rsg-terraform-kubernetes-ingress-nginx.git (fetch)
-> origin  git@github.com:LexisNexis-RBA/rsg-terraform-kubernetes-ingress-nginx.git (push)
+> origin  git@github.com:sossickd/rsg-terraform-lnrs-helm-opencost.git (fetch)
+> origin  git@github.com:sossickd/rsg-terraform-lnrs-helm-opencost.git (push)
 > ```
 
 After pushing the release tag to GitHub, push the release tag to GitLab:

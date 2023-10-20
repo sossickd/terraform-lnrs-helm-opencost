@@ -13,7 +13,7 @@ Please list the issues which this PR relates to.
 
 - Closes #0000
 - Related #1111
-- Documentation LexisNexis-RBA/rsg-kubernetes#2222
+- Documentation sossickd/rsg-kubernetes#2222
 -->
 
 ## Testing
