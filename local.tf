@@ -130,8 +130,8 @@ locals {
           } : {}, )
 
           hosts = [{
-            host = var.ingress_hostname
-            path = ["/"]
+            host  = var.ingress_hostname
+            paths = ["/"]
           }]
         }
 
