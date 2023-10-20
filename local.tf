@@ -2,7 +2,7 @@ locals {
   module_name    = "terraform-lnrs-helm-opencost"
   module_version = "1.0.0-rc.1"
 
-  chart_version = "1.15.3"
+  chart_version = "1.20.1"
 
   chart_values = {
 
