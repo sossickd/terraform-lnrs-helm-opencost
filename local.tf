@@ -121,6 +121,7 @@ locals {
             var.ingress_annotations,
             var.cloud == "aws" ? {
               "alb.ingress.kubernetes.io/healthcheck-path" = "/-/ready"
+              "alb.ingress.kubernetes.io/listen-ports"     = "[{\"HTTP\": 80}, {\"HTTPS\":443}]"
               "alb.ingress.kubernetes.io/inbound-cidrs"    = "10.0.0.0/8,145.43.180.0/22"
               "alb.ingress.kubernetes.io/ssl-redirect"     = "443"
               "alb.ingress.kubernetes.io/target-type"      = "ip"
