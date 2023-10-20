@@ -39,7 +39,7 @@ resource "kubernetes_config_map_v1_data" "terraform_modules" {
   ]
 }
 
-resource "kubernetes_config_map_v1_data" "opencost" {
+resource "kubernetes_config_map" "opencost" {
   count = var.cloud == "aws" ? 1 : 0
 
   metadata {
@@ -73,7 +73,7 @@ resource "helm_release" "default" {
 
   depends_on = [
     kubernetes_namespace.default,
-    kubernetes_config_map_v1_data.opencost,
+    kubernetes_config_map.opencost,
     module.iam_role
   ]
 }
