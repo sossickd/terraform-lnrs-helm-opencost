@@ -68,7 +68,7 @@ locals {
           enabled = true
 
           additionalLabels = {
-            "lnrs.io/monitoring-platform" = true
+            "lnrs.io/monitoring-platform" = "true"
           }
         }
       }
