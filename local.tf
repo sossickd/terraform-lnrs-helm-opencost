@@ -131,6 +131,7 @@ locals {
 
           hosts = [{
             host = var.ingress_hostname
+            path = [ "/" ]
           }]
         }
 
