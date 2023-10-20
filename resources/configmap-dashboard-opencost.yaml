@@ -2,9 +2,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: dashboard-opencost
-  labels:
-    grafana_dashboard: "1"
   namespace: ${namespace}
+  labels:
+    lnrs.io/k8s-platform: "true"
+    grafana_dashboard: "1"
 data:
   opencost-dashboard.json: |-
     {
