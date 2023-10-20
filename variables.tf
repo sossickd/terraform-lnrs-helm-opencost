@@ -110,8 +110,8 @@ variable "athena_database" {
   nullable    = true
 }
 
-variable "athena_region" {
-  description = "Athena region."
+variable "athena_table" {
+  description = "Athena table."
   type        = string
   nullable    = true
 }

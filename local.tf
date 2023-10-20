@@ -186,7 +186,7 @@ locals {
         "athenaBucketName": "s3://${athena_bucket_name},
         "athenaRegion": "${athena_region}",
         "athenaDatabase": "${athena_database}",
-        "athenaTable": "${athena_region}",
+        "athenaTable": "${athena_table}",
         "athenaProjectID": "${account_id}",
         "projectID": "${account_id}"
     }
