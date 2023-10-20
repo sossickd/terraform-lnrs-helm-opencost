@@ -73,7 +73,7 @@ resource "helm_release" "default" {
 
   depends_on = [
     kubernetes_namespace.default,
-    kubernetes_config_map_v1_data[0].opencost,
+    kubernetes_config_map_v1_data.opencost,
     module.iam_role
   ]
 }

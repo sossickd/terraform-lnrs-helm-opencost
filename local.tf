@@ -180,15 +180,15 @@ locals {
         "internetNetworkEgress": "0.143",
         "spotLabel": "kops.k8s.io/instancegroup",
         "spotLabelValue": "spotinstance-nodes",
-        "awsSpotDataRegion":"${aws_spot_data_region}",
-        "awsSpotDataBucket": "${aws_spot_data_bucket_name}",
-        "awsSpotDataPrefix": "${aws_spot_data_prefix}",
-        "athenaBucketName": "s3://${athena_bucket_name},
-        "athenaRegion": "${athena_region}",
-        "athenaDatabase": "${athena_database}",
-        "athenaTable": "${athena_table}",
-        "athenaProjectID": "${account_id}",
-        "projectID": "${account_id}"
+        "awsSpotDataRegion":"${var.aws_spot_data_region}",
+        "awsSpotDataBucket": "${var.aws_spot_data_bucket_name}",
+        "awsSpotDataPrefix": "${var.aws_spot_data_prefix}",
+        "athenaBucketName": "s3://${var.athena_bucket_name},
+        "athenaRegion": "${var.athena_region}",
+        "athenaDatabase": "${var.athena_database}",
+        "athenaTable": "${var.athena_table}",
+        "athenaProjectID": "${var.account_id}",
+        "projectID": "${var.account_id}"
     }
   EOT
 
