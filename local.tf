@@ -180,7 +180,7 @@ locals {
         "internetNetworkEgress": "0.143",
         "spotLabel": "kops.k8s.io/instancegroup",
         "spotLabelValue": "spotinstance-nodes",
-        "awsSpotDataRegion":"${var.aws_spot_data_region}",
+        "awsSpotDataRegion": "${var.aws_spot_data_region}",
         "awsSpotDataBucket": "${var.aws_spot_data_bucket_name}",
         "awsSpotDataPrefix": "${var.aws_spot_data_prefix}",
         "athenaBucketName": "s3://${var.athena_bucket_name},
