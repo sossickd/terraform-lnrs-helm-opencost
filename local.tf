@@ -11,7 +11,7 @@ locals {
     serviceAccount = {
       create = true
 
-      annotations = var.cloud == "aws" ? { "eks.amazonaws.com/role-arn" = module.iam_role.arn } : var.cloud == "azure" ? {} : {}
+      annotations = var.cloud == "aws" ? { "eks.amazonaws.com/role-arn" = module.iam_role[0].arn } : var.cloud == "azure" ? {} : {}
 
       automountServiceAccountToken = true
 
