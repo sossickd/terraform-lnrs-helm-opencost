@@ -4,6 +4,7 @@ module "iam_role" {
   source = "./modules/iam-role"
 
   partition = var.partition
+  account_id = var.account_id
 
   oidc_issuer_url = var.cluster_oidc_issuer_url
 
