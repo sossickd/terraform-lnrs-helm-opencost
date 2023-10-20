@@ -165,6 +165,33 @@ locals {
 
   }
 
+  opencost_configmap_data = <<-EOT
+    {
+        "provider": "${var.cloud}",
+        "description": "AWS Provider Configuration. Provides default values used if instance type or spot information is not found.",
+        "CPU": "0.031611",
+        "spotCPU": "0.006655",
+        "RAM": "0.004237",
+        "GPU": "0.95",
+        "spotRAM": "0.000892",
+        "storage": "0.000138888889",
+        "zoneNetworkEgress": "0.01",
+        "regionNetworkEgress": "0.01",
+        "internetNetworkEgress": "0.143",
+        "spotLabel": "kops.k8s.io/instancegroup",
+        "spotLabelValue": "spotinstance-nodes",
+        "awsSpotDataRegion":"${aws_spot_data_region}",
+        "awsSpotDataBucket": "${aws_spot_data_bucket_name}",
+        "awsSpotDataPrefix": "${aws_spot_data_prefix}",
+        "athenaBucketName": "s3://${athena_bucket_name},
+        "athenaRegion": "${athena_region}",
+        "athenaDatabase": "${athena_database}",
+        "athenaTable": "${athena_region}",
+        "athenaProjectID": "${account_id}",
+        "projectID": "${account_id}"
+    }
+  EOT
+
   service_account_name = "opencost"
 
   resource_files = { for x in fileset(path.module, "resources/*.yaml") : basename(x) => "${path.module}/${x}" }

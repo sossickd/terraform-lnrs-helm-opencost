@@ -30,8 +30,14 @@ variable "cloud" {
 variable "partition" {
   description = "AWS partition."
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "aws"
+}
+
+variable "account_id" {
+  description = "AWS account id."
+  type        = string
+  nullable    = true
 }
 
 variable "cluster_oidc_issuer_url" {
@@ -68,11 +74,47 @@ variable "thanos_enabled" {
   default     = false
 }
 
-#variable "region" {
-#  description = "The region."
-#  type        = string
-#  nullable    = true
-#}
+variable "aws_spot_data_region" {
+  description = "AWS spot data region."
+  type        = string
+  nullable    = true
+}
+
+variable "aws_spot_data_bucket_name" {
+  description = "AWS spot data bucket name."
+  type        = string
+  nullable    = true
+}
+
+variable "aws_spot_data_prefix" {
+  description = "AWS spot data prefix."
+  type        = string
+  nullable    = true
+}
+
+variable "athena_bucket_name" {
+  description = "Athena bucket name."
+  type        = string
+  nullable    = true
+}
+
+variable "athena_region" {
+  description = "Athena region."
+  type        = string
+  nullable    = true
+}
+
+variable "athena_database" {
+  description = "Athena database."
+  type        = string
+  nullable    = true
+}
+
+variable "athena_region" {
+  description = "Athena region."
+  type        = string
+  nullable    = true
+}
 
 variable "tags" {
   description = "Tags to apply to all resources."

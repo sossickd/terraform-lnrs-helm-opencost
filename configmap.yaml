@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: opencost-aws
+  namespace: opencost
+data:
+  aws.json: |
+    {
+        "provider": "aws",
+        "description": "AWS Provider Configuration. Provides default values used if instance type or spot information is not found.",
+        "CPU": "0.031611",
+        "spotCPU": "0.006655",
+        "RAM": "0.004237",
+        "GPU": "0.95",
+        "spotRAM": "0.000892",
+        "storage": "0.000138888889",
+        "zoneNetworkEgress": "0.01",
+        "regionNetworkEgress": "0.01",
+        "internetNetworkEgress": "0.143",
+        "spotLabel": "kops.k8s.io/instancegroup",
+        "spotLabelValue": "spotinstance-nodes",
+        "awsSpotDataRegion":"eu-west-1",
+        "awsSpotDataBucket": "iobspotdatafeedsubscription",
+        "awsSpotDataPrefix": "iog-spot-datafeed",
+        "athenaBucketName": "s3://aws-athena-query-results-250548764382-eu-west-1",
+        "athenaRegion": "eu-west-1",
+        "athenaDatabase": "athenacurcfn_opencost_report",
+        "athenaTable": "opencost_report",
+        "athenaProjectID": "250548764382",
+        "projectID": "250548764382"
+    }
