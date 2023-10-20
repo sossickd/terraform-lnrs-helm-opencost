@@ -3,7 +3,7 @@ module "iam_role" {
 
   source = "./modules/iam-role"
 
-  partition  = var.partition
+  partition = var.partition
 
   oidc_issuer_url = var.cluster_oidc_issuer_url
 
