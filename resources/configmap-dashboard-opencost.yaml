@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: dashboard-opencost
-  namespace: ${namespace}
+  namespace: opencost
   labels:
     lnrs.io/k8s-platform: "true"
     grafana_dashboard: "1"
