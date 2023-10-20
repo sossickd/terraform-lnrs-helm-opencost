@@ -184,7 +184,7 @@ locals {
         "awsSpotDataRegion": "${var.aws_spot_data_region}",
         "awsSpotDataBucket": "${var.aws_spot_data_bucket_name}",
         "awsSpotDataPrefix": "${var.aws_spot_data_prefix}",
-        "athenaBucketName": "s3://${var.athena_bucket_name},
+        "athenaBucketName": "s3://${var.athena_bucket_name}",
         "athenaRegion": "${var.athena_region}",
         "athenaDatabase": "${var.athena_database}",
         "athenaTable": "${var.athena_table}",
