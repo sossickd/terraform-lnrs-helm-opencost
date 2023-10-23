@@ -37,50 +37,50 @@ resource "aws_s3_bucket_ownership_controls" "spotfeed" {
   }
 }
 
-#resource "aws_s3_bucket_policy" "spotfeed" {
-#  bucket = aws_s3_bucket.spotfeed.id
-#  policy = jsonencode({
-#    "Version" = "2012-10-17"
-#    "Statement" = [
-#      {
-#        "Sid"       = "deny-incorrect-encryption-header"
-#        "Effect"    = "Deny"
-#        "Principal" = "*"
-#        "Action"    = "s3:PutObject"
-#        "Resource"  = "${aws_s3_bucket.spotfeed.arn}/*"
-#        "Condition" = {
-#          "StringNotEquals" = {
-#            "s3:X-Amz-Server-Side-Encryption" = "AES256"
-#          }
-#        }
-#      },
-#      {
-#        "Sid"       = "deny-unencrypted-oject-uploads"
-#        "Effect"    = "Deny"
-#        "Principal" = "*"
-#        "Action"    = "s3:PutObject"
-#        "Resource"  = "${aws_s3_bucket.spotfeed.arn}/*"
-#        "Condition" = {
-#          "Null" = {
-#            "s3:X-Amz-Server-Side-Encryption" = "true"
-#          }
-#        }
-#      },
-#      {
-#        "Sid"       = "only-allow-https-requests"
-#        "Effect"    = "Deny"
-#        "Principal" = "*"
-#        "Action"    = "*"
-#        "Resource"  = "${aws_s3_bucket.spotfeed.arn}/*"
-#        "Condition" = {
-#          "Bool" = {
-#            "aws:SecureTransport" = "false"
-#          }
-#        }
-#      },
-#    ]
-#  })
-#}
+resource "aws_s3_bucket_policy" "spotfeed" {
+  bucket = aws_s3_bucket.spotfeed.id
+  policy = jsonencode({
+    "Version" = "2012-10-17"
+    "Statement" = [
+      {
+        "Sid"       = "deny-incorrect-encryption-header"
+        "Effect"    = "Deny"
+        "Principal" = "*"
+        "Action"    = "s3:PutObject"
+        "Resource"  = "${aws_s3_bucket.spotfeed.arn}/*"
+        "Condition" = {
+          "StringNotEquals" = {
+            "s3:X-Amz-Server-Side-Encryption" = "AES256"
+          }
+        }
+      },
+      {
+        "Sid"       = "deny-unencrypted-oject-uploads"
+        "Effect"    = "Deny"
+        "Principal" = "*"
+        "Action"    = "s3:PutObject"
+        "Resource"  = "${aws_s3_bucket.spotfeed.arn}/*"
+        "Condition" = {
+          "Null" = {
+            "s3:X-Amz-Server-Side-Encryption" = "true"
+          }
+        }
+      },
+      {
+        "Sid"       = "only-allow-https-requests"
+        "Effect"    = "Deny"
+        "Principal" = "*"
+        "Action"    = "*"
+        "Resource"  = "${aws_s3_bucket.spotfeed.arn}/*"
+        "Condition" = {
+          "Bool" = {
+            "aws:SecureTransport" = "false"
+          }
+        }
+      },
+    ]
+  })
+}
 
 resource "aws_spot_datafeed_subscription" "spotfeed" {
   bucket = aws_s3_bucket.spotfeed.id
