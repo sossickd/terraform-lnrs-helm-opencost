@@ -33,7 +33,7 @@ resource "aws_s3_bucket_public_access_block" "spotfeed" {
 resource "aws_s3_bucket_ownership_controls" "spotfeed" {
   bucket = aws_s3_bucket.spotfeed.id
   rule {
-    object_ownership = "bucketOwnerPreferred"
+    object_ownership = "BucketOwnerPreferred"
   }
 }
 
