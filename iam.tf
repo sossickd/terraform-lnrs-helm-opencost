@@ -102,7 +102,7 @@ module "iam_role" {
         "Sid" : "SpotFeedAccess2",
         "Effect" : "Allow",
         "Action" : "s3:*",
-        "Resource" : "arn:${var.aws.partition}:s3:::${aws_s3_bucket.spotfeed.id}"
+        "Resource" : "arn:${var.aws.partition}:s3:::${aws_s3_bucket.spotfeed[0].id}"
       }
     ]
   })
