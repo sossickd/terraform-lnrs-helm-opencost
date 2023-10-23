@@ -1,14 +1,24 @@
-variable "partition" {
-  description = "AWS partition."
-  type        = string
-  nullable    = false
-}
+#variable "partition" {
+#  description = "AWS partition."
+#  type        = string
+#  nullable    = false
+#}
 
-variable "account_id" {
-  description = "The account ID."
-  type        = string
-  nullable    = true
-  default     = ""
+#variable "account_id" {
+#  description = "The account ID."
+#  type        = string
+#  nullable    = true
+#  default     = ""
+#}
+
+variable "aws" {
+  description = "AWS configuration."
+  type = object({
+    partition  = optional(string, "aws")
+    account_id = optional(string, null)
+  })
+  nullable = false
+  default  = {}
 }
 
 variable "oidc_issuer_url" {

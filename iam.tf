@@ -3,8 +3,8 @@ module "iam_role" {
 
   source = "./modules/iam-role"
 
-  partition  = var.partition
-  account_id = var.account_id
+  partition  = var.aws.partition
+  account_id = var.aws.account_id
 
   oidc_issuer_url = var.cluster_oidc_issuer_url
 
@@ -33,9 +33,9 @@ module "iam_role" {
           "glue:BatchGetPartition"
         ],
         "Resource" : [
-          "arn:${var.partition}:glue:*:*:catalog",
-          "arn:${var.partition}:glue:*:*:database/athenacurcfn*",
-          "arn:${var.partition}:glue:*:*:table/athenacurcfn*/*"
+          "arn:${var.aws.partition}:glue:*:*:catalog",
+          "arn:${var.aws.partition}:glue:*:*:database/athenacurcfn*",
+          "arn:${var.aws.partition}:glue:*:*:table/athenacurcfn*/*"
         ],
         "Effect" : "Allow",
         "Sid" : "ReadAccessToAthenaCurDataViaGlue"
@@ -52,7 +52,7 @@ module "iam_role" {
           "s3:PutObject"
         ],
         "Resource" : [
-          "arn:${var.partition}:s3:::aws-athena-query-results-*"
+          "arn:${var.aws.partition}:s3:::aws-athena-query-results-*"
         ],
         "Effect" : "Allow",
         "Sid" : "AthenaQueryResultsOutput"
@@ -63,7 +63,7 @@ module "iam_role" {
           "s3:List*"
         ],
         "Resource" : [
-          "arn:${var.partition}:s3:::*"
+          "arn:${var.aws.partition}:s3:::*"
         ],
         "Effect" : "Allow",
         "Sid" : "S3ReadAccessToAwsBillingData"
@@ -102,7 +102,7 @@ module "iam_role" {
         "Sid" : "SpotFeedAccess2",
         "Effect" : "Allow",
         "Action" : "s3:*",
-        "Resource" : "arn:${var.partition}:s3:::${aws_s3_bucket.spotfeed.id}"
+        "Resource" : "arn:${var.aws.partition}:s3:::${aws_s3_bucket.spotfeed.id}"
       }
     ]
   })

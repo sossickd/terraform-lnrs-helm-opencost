@@ -39,5 +39,5 @@ resource "aws_s3_bucket_ownership_controls" "spotfeed" {
 
 resource "aws_spot_datafeed_subscription" "spotfeed" {
   bucket = aws_s3_bucket.spotfeed.id
-  prefix = var.aws_spot_data_prefix
+  prefix = var.aws.spot_data_prefix
 }

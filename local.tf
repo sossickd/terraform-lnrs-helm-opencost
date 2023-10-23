@@ -184,13 +184,13 @@ locals {
         "spotLabelValue": "spotinstance-nodes",
         "awsSpotDataRegion": "${aws_s3_bucket.spotfeed.region}",
         "awsSpotDataBucket": "${aws_s3_bucket.spotfeed.id}",
-        "awsSpotDataPrefix": "${var.aws_spot_data_prefix}",
+        "awsSpotDataPrefix": "${var.aws.spot_data_prefix}",
         "athenaBucketName": "s3://${var.athena_bucket_name}",
         "athenaRegion": "${var.athena_region}",
         "athenaDatabase": "${var.athena_database}",
         "athenaTable": "${var.athena_table}",
-        "athenaProjectID": "${var.account_id}",
-        "projectID": "${var.account_id}"
+        "athenaProjectID": "${var.aws.account_id}",
+        "projectID": "${var.aws.account_id}"
     }
   EOT
 
