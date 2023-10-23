@@ -3,7 +3,7 @@ module "iam_role" {
 
   source = "./modules/iam-role"
 
-  partition = var.partition
+  partition  = var.partition
   account_id = var.account_id
 
   oidc_issuer_url = var.cluster_oidc_issuer_url
@@ -102,7 +102,7 @@ module "iam_role" {
         "Sid" : "SpotFeedAccess2",
         "Effect" : "Allow",
         "Action" : "s3:*",
-        "Resource" : "arn:${var.partition}:s3:::iobspotdatafeedsubscription"
+        "Resource" : "arn:${var.partition}:s3:::${aws_s3_bucket.spotfeed.id}"
       }
     ]
   })

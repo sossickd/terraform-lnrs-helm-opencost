@@ -74,22 +74,11 @@ variable "thanos_enabled" {
   default     = false
 }
 
-variable "aws_spot_data_region" {
-  description = "AWS spot data region."
-  type        = string
-  nullable    = true
-}
-
-variable "aws_spot_data_bucket_name" {
-  description = "AWS spot data bucket name."
-  type        = string
-  nullable    = true
-}
-
 variable "aws_spot_data_prefix" {
   description = "AWS spot data prefix."
   type        = string
   nullable    = true
+  default     = "spot-datafeed"
 }
 
 variable "athena_bucket_name" {
