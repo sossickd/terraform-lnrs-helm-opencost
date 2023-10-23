@@ -14,7 +14,7 @@ locals {
   subject_prefix = "system:serviceaccount:"
 
   oidc_host = replace(var.oidc_issuer_url, "https://", "")
-  oidc_arn  = "arn:${var.aws.partition}:iam::${var.aws.account_id}:oidc-provider/${local.oidc_host}"
+  oidc_arn  = "arn:${var.partition}:iam::${var.account_id}:oidc-provider/${local.oidc_host}"
 
   policy_name = "${var.iam_name}-policy"
 }
