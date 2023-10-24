@@ -5,6 +5,7 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 4.34.0"
+      configuration_aliases = [ aws.us-east ]
     }
     helm = {
       source  = "hashicorp/helm"

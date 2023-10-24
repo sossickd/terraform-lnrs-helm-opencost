@@ -46,7 +46,8 @@ resource "aws_s3_bucket_ownership_controls" "cur-athena" {
 }
 
 resource "aws_cur_report_definition" "example_cur_report_definition" {
-  count = var.cloud == "aws" ? 1 : 0
+  count    = var.cloud == "aws" ? 1 : 0
+  provider = aws.us-east
 
   report_name                = "${var.cluster_name}-cur-report"
   time_unit                  = "DAILY"
