@@ -56,6 +56,14 @@ resource "kubernetes_config_map" "opencost" {
   ]
 }
 
+module "aws_integration" {
+  count = var.cloud == "aws" ? 1 : 0
+
+  source = "./modules/aws-integration"
+
+  cluster_name = var.cluster_name
+}
+
 resource "helm_release" "default" {
   name      = var.release_name
   namespace = var.namespace
@@ -74,6 +82,7 @@ resource "helm_release" "default" {
   depends_on = [
     kubernetes_namespace.default,
     kubernetes_config_map.opencost,
-    module.iam_role
+    module.iam_role,
+    module.aws_integration
   ]
 }
