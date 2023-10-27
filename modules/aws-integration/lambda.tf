@@ -6,7 +6,7 @@ resource "aws_lambda_function" "awscur_initializer" {
   }
 
   function_name                  = "${var.cluster_name}-awscur-initializer"
-  filename                       = "resources/awscur-initializer.zip"
+  filename                       = "./resources/awscur-initializer.zip"
   package_type                   = "Zip"
   memory_size                    = 128
   handler                        = "index.handler"
@@ -36,7 +36,7 @@ resource "aws_lambda_function" "awss3_cur_notification" {
   }
 
   function_name                  = "${var.cluster_name}-awss3-cur-notification"
-  filename                       = "resources/awss3-cur-notification.zip"
+  filename                       = "./resources/awss3-cur-notification.zip"
   package_type                   = "Zip"
   handler                        = "index.handler"
   timeout                        = 30
