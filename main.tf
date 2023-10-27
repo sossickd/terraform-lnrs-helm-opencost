@@ -61,6 +61,10 @@ module "aws_integration" {
 
   source = "./modules/aws-integration"
 
+  aws = {
+    account_id = var.aws.account_id
+  }
+
   cluster_name = var.cluster_name
 }
 
