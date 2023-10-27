@@ -12,7 +12,8 @@ resource "aws_lambda_function" "awscur_initializer" {
   handler                        = "index.handler"
   timeout                        = 30
   runtime                        = "nodejs16.x"
-  source_code_hash               = "EpOpP8Eir60NJ8Bq+haFR1gYUsAH+aDz7xZ4bFidot4="
+  source_code_hash               = filebase64sha256("gawscur-initializer.zip")
+#  source_code_hash               = "EpOpP8Eir60NJ8Bq+haFR1gYUsAH+aDz7xZ4bFidot4="
   reserved_concurrent_executions = 1
   role                           = aws_iam_role.awscur_crawler_lambda_executor.arn
   tracing_config {
@@ -41,7 +42,8 @@ resource "aws_lambda_function" "awss3_cur_notification" {
   handler                        = "index.handler"
   timeout                        = 30
   runtime                        = "nodejs16.x"
-  source_code_hash               = "Ba4M42hl3KStaz6k96Q3GWfLuQAqQN2XbL0ZlQ4gl0s="
+  source_code_hash               = filebase64sha256("awss3-cur-notification.zip")
+#  source_code_hash               = "Ba4M42hl3KStaz6k96Q3GWfLuQAqQN2XbL0ZlQ4gl0s="
   reserved_concurrent_executions = 1
   role                           = aws_iam_role.awss3_cur_lambda_executor.arn
   tracing_config {
