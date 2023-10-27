@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-lambda-enable-tracing
 resource "aws_lambda_function" "awscur_initializer" {
   architectures = ["x86_64"]
   ephemeral_storage {
@@ -27,6 +28,7 @@ resource "aws_lambda_permission" "awss3_cur_event_lambda_permission" {
   source_arn     = "arn:${var.aws.partition}:s3:::${var.cluster_name}-us-east-1-cur-athena"
 }
 
+#tfsec:ignore:aws-lambda-enable-tracing
 resource "aws_lambda_function" "awss3_cur_notification" {
   architectures = ["x86_64"]
   ephemeral_storage {
