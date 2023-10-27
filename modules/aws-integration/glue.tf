@@ -23,7 +23,7 @@ resource "aws_glue_crawler" "awscur_crawler" {
 resource "aws_glue_catalog_table" "catalog_table" {
   catalog_id    = var.aws.account_id
   database_name = aws_glue_catalog_database.awscur_database.name
-  name          = "cost_and_usage_data_status"
+  name          = "${var.cluster_name}_cost_and_usage_data_status"
   storage_descriptor {
     columns {
       name = "status"
