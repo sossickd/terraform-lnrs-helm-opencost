@@ -78,6 +78,7 @@ resource "aws_iam_role" "awscur_crawler_component_function" {
 }
 
 resource "aws_iam_role" "awscur_crawler_lambda_executor" {
+  name = "${var.cluster_name}-awscur-crawler-lambda-executor"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
