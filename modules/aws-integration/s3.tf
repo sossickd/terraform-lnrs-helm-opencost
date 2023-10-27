@@ -36,13 +36,3 @@ resource "aws_s3_bucket_ownership_controls" "spotfeed" {
     object_ownership = "BucketOwnerPreferred"
   }
 }
-
-resource "aws_s3_bucket_notification" "aws_put_s3_cur_notification" {
-  bucket = "${var.cluster_name}-us-east-1-cur-athena"
-
-  lambda_function {
-    lambda_function_arn = aws_lambda_function.awscur_initializer.arn
-    events              = ["s3:ObjectCreated:*"]
-    filter_prefix       = "opencost-prefix/${var.cluster_name}-opencost-report/${var.cluster_name}-cur-report/${var.cluster_name}-cur-report"
-  }
-}
