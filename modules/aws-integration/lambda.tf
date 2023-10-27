@@ -5,15 +5,14 @@ resource "aws_lambda_function" "awscur_initializer" {
     size = 512
   }
 
-  function_name    = "${var.cluster_name}-awscur-initializer"
-  filename         = "awscur-initializer.zip"
-  package_type     = "Zip"
-  memory_size      = 128
-  handler          = "index.handler"
-  timeout          = 30
-  runtime          = "nodejs16.x"
-  source_code_hash = filebase64sha256("gawscur-initializer.zip")
-  #  source_code_hash               = "EpOpP8Eir60NJ8Bq+haFR1gYUsAH+aDz7xZ4bFidot4="
+  function_name                  = "${var.cluster_name}-awscur-initializer"
+  filename                       = "${path.module}/resources/aws-cur-initializer.zip"
+  package_type                   = "Zip"
+  memory_size                    = 128
+  handler                        = "index.handler"
+  timeout                        = 30
+  runtime                        = "nodejs16.x"
+  source_code_hash               = filebase64sha256("${path.module}/resources/aws-cur-initializer.zip")
   reserved_concurrent_executions = 1
   role                           = aws_iam_role.awscur_crawler_lambda_executor.arn
   tracing_config {
@@ -36,14 +35,13 @@ resource "aws_lambda_function" "awss3_cur_notification" {
     size = 512
   }
 
-  function_name    = "${var.cluster_name}-awss3-cur-notification"
-  filename         = "awss3-cur-notification.zip"
-  package_type     = "Zip"
-  handler          = "index.handler"
-  timeout          = 30
-  runtime          = "nodejs16.x"
-  source_code_hash = filebase64sha256("awss3-cur-notification.zip")
-  #  source_code_hash               = "Ba4M42hl3KStaz6k96Q3GWfLuQAqQN2XbL0ZlQ4gl0s="
+  function_name                  = "${var.cluster_name}-awss3-cur-notification"
+  filename                       = "${path.module}/resources/aws-s3-cur-notification.zip"
+  package_type                   = "Zip"
+  handler                        = "index.handler"
+  timeout                        = 30
+  runtime                        = "nodejs16.x"
+  source_code_hash               = filebase64sha256("${path.module}/resources/aws-s3-cur-notification.zip")
   reserved_concurrent_executions = 1
   role                           = aws_iam_role.awss3_cur_lambda_executor.arn
   tracing_config {
