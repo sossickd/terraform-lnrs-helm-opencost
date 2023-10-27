@@ -25,7 +25,7 @@ resource "aws_lambda_permission" "awss3_cur_event_lambda_permission" {
   function_name  = aws_lambda_function.awscur_initializer.arn
   principal      = "s3.amazonaws.com"
   source_account = var.aws.account_id
-  source_arn     = "arn:${var.aws.partition}:s3:::${var.cluster_name}-us-east-1-cur-athena"
+  source_arn     = "arn:${var.aws.partition}:s3:::${aws_s3_bucket.cur-athena.id}"
 }
 
 #tfsec:ignore:aws-lambda-enable-tracing

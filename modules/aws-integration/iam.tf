@@ -53,7 +53,7 @@ resource "aws_iam_role" "awscur_crawler_component_function" {
             "s3:GetObject",
             "s3:PutObject"
           ]
-          Resource = "arn:${var.aws.partition}:s3:::${var.cluster_name}-us-east-1-cur-athena/opencost-prefix/${var.cluster_name}-opencost-report/${var.cluster_name}-cur-report/${var.cluster_name}-cur-report*"
+          Resource = "arn:${var.aws.partition}:s3:::${aws_s3_bucket.cur-athena.id}/opencost-prefix/${var.cluster_name}-opencost-report/${var.cluster_name}-cur-report/${var.cluster_name}-cur-report*"
         }
       ]
     })
@@ -164,7 +164,7 @@ resource "aws_iam_role" "awss3_cur_lambda_executor" {
           Action = [
             "s3:PutBucketNotification"
           ]
-          Resource = "arn:${var.aws.partition}:s3:::${var.cluster_name}-us-east-1-cur-athena"
+          Resource = "arn:${var.aws.partition}:s3:::${aws_s3_bucket.cur-athena.id}"
         }
       ]
     })
