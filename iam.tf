@@ -34,8 +34,8 @@ module "iam_role" {
         ],
         "Resource" : [
           "arn:${var.aws.partition}:glue:*:*:catalog",
-          "arn:${var.aws.partition}:glue:*:*:database/athenacurcfn*",
-          "arn:${var.aws.partition}:glue:*:*:table/athenacurcfn*/*"
+          "arn:${var.aws.partition}:glue:*:*:database/${var.cluster_name}-awscur*",
+          "arn:${var.aws.partition}:glue:*:*:table/*/*"
         ],
         "Effect" : "Allow",
         "Sid" : "ReadAccessToAthenaCurDataViaGlue"
