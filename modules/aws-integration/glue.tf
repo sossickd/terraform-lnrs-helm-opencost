@@ -8,7 +8,7 @@ resource "aws_glue_crawler" "awscur_crawler" {
   name          = "AWSCURCrawler-${var.cluster_name}-cur-report"
   description   = "A recurring crawler that keeps your CUR table in Athena up-to-date."
   role          = aws_iam_role.awscur_crawler_component_function.arn
-  database_name = aws_glue_catalog_database.awscur_database.arn
+  database_name = aws_glue_catalog_database.awscur_database.id
 
   s3_target {
     path       = "s3://${aws_s3_bucket.cur-athena.id}/opencost-prefix/${var.cluster_name}-opencost-report/${var.cluster_name}-cur-report/${var.cluster_name}-cur-report"
