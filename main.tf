@@ -63,6 +63,7 @@ module "aws_integration" {
 
   aws = {
     account_id = var.aws.account_id
+    partition = var.aws.partition
   }
 
   cluster_name = var.cluster_name
