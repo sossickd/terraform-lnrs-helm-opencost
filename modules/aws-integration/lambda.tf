@@ -17,7 +17,7 @@ resource "aws_lambda_function" "awscur_initializer" {
   role                           = aws_iam_role.awscur_crawler_lambda_executor.arn
   environment {
     variables = {
-      api_key = "${aws_glue_crawler.awscur_crawler.name}"
+      CRAWLERNAME = "${aws_glue_crawler.awscur_crawler.name}"
     }
   }
   tracing_config {
