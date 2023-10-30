@@ -15,6 +15,11 @@ resource "aws_lambda_function" "awscur_initializer" {
   source_code_hash               = filebase64sha256("${path.module}/resources/aws-cur-initializer.zip")
   reserved_concurrent_executions = 1
   role                           = aws_iam_role.awscur_crawler_lambda_executor.arn
+  environment {
+    variables = {
+      api_key = "${aws_glue_crawler.awscur_crawler.name}"
+    }
+  }
   tracing_config {
     mode = "PassThrough"
   }
