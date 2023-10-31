@@ -50,6 +50,9 @@ locals {
         extraVolumeMounts = var.cloud == "aws" ? [{
           mountPath = "/tmp/custom-config"
           name      = "custom-configs"
+          }] : var.cloud == "azure" ? [{
+          mountPath = "/tmp/custom-config"
+          name      = "custom-configs"
         }] : []
       }
 
