@@ -176,6 +176,17 @@ locals {
     {
         "provider": "${var.cloud}",
         "description": "Azure Provider Configuration. Provides default values used if instance type or spot information is not found.",
+        "CPU": "0.031611",
+        "spotCPU": "0.006655",
+        "RAM": "0.004237",
+        "GPU": "0.95",
+        "spotRAM": "0.000892",
+        "storage": "0.000138888889",
+        "zoneNetworkEgress": "0.01",
+        "regionNetworkEgress": "0.01",
+        "internetNetworkEgress": "0.143",
+        "spotLabel": "kops.k8s.io/instancegroup",
+        "spotLabelValue": "spotinstance-nodes",
         "azureSubscriptionID": "${var.azure.subscription_id}"
     }
   EOT
