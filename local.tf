@@ -166,7 +166,7 @@ locals {
       name = "custom-configs"
       configMap = {
         name = "opencost-azure"
-    } }] : [{}]
+    } }] : []
 
   }
 
