@@ -87,9 +87,7 @@ resource "helm_release" "default" {
   depends_on = [
     kubernetes_namespace.default,
     kubernetes_config_map.opencost,
-    module.iam_role[0],
-    module.aws_integration[0],
-    #  azurerm_role_definition.opencost_ratecard_reader[0],
-    module.identity[0]
+    azurerm_role_definition.opencost_ratecard_reader,
+    module.identity
   ]
 }

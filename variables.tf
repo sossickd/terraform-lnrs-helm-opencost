@@ -27,17 +27,6 @@ variable "cloud" {
   }
 }
 
-variable "aws" {
-  description = "AWS configuration."
-  type = object({
-    partition        = optional(string, "aws")
-    account_id       = optional(string, null)
-    spot_data_prefix = optional(string, "spot-datafeed")
-  })
-  nullable = false
-  default  = {}
-}
-
 variable "azure" {
   description = "Azure configuration."
   type = object({
