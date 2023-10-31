@@ -173,8 +173,8 @@ locals {
   opencost_configmap_data = <<-EOT
     {
         "provider": "${var.cloud}",
-        "description": "AWS Provider Configuration. Provides default values used if instance type or spot information is not found.",
-        "projectID": "${var.azure.subscription_id}"
+        "description": "Azure Provider Configuration. Provides default values used if instance type or spot information is not found.",
+        "azureSubscriptionID": "${var.azure.subscription_id}"
     }
   EOT
 
