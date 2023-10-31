@@ -38,17 +38,6 @@ variable "aws" {
   default  = {}
 }
 
-variable "azure" {
-  description = "Azure configuration."
-  type = object({
-    location            = optional(string, null)
-    subscription_id     = optional(string, null)
-    resource_group_name = optional(string, null)
-  })
-  nullable = false
-  default  = {}
-}
-
 variable "cluster_oidc_issuer_url" {
   description = "The OIDC issuer url for the cluster."
   type        = string
