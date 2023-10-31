@@ -50,7 +50,7 @@ locals {
         extraVolumeMounts = var.cloud == "aws" ? [{
           mountPath = "/tmp/custom-config"
           name      = "custom-configs"
-        }] : [{}]
+        }] : []
       }
 
       customPricing = {
