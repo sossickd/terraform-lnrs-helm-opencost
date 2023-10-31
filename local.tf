@@ -4,6 +4,8 @@ locals {
 
   chart_version = "1.20.1"
 
+  use_aad_workload_identity = false
+
   chart_values = {
 
     nameOverride = "opencost"
@@ -11,15 +13,16 @@ locals {
     serviceAccount = {
       create = true
 
-      annotations = var.cloud == "aws" ? { "eks.amazonaws.com/role-arn" = module.iam_role[0].arn } : var.cloud == "azure" ? {} : {}
+      annotations = var.cloud == "aws" ? { "eks.amazonaws.com/role-arn" = module.iam_role[0].arn } : var.cloud == "azure" && local.use_aad_workload_identity == true ? { "azure.workload.identity/client-id" = module.identity.client_id } : {}
 
       automountServiceAccountToken = true
 
     }
 
-    podLabels = {
-      "lnrs.io/k8s-platform" = "true"
-    }
+    podLabels = merge(var.labels,
+      var.cloud == "azure" && local.use_aad_workload_identity == true ? { "azure.workload.identity/use" = "true" } :
+      var.cloud == "azure" && local.use_aad_workload_identity == false ? { aadpodidbinding = module.identity[0].name } :
+    var.cloud == "aws" ? {} : {})
 
     opencost = {
       exporter = {
@@ -47,10 +50,7 @@ locals {
         extraVolumeMounts = var.cloud == "aws" ? [{
           mountPath = "/tmp/custom-config"
           name      = "custom-configs"
-          }] : var.cloud == "azure" ? [{
-          mountPath = "/var/secrets"
-          name      = "service-key-secret"
-        }] : []
+        }] : [{}]
       }
 
       customPricing = {
@@ -159,11 +159,7 @@ locals {
       configMap = {
         name = "opencost-aws"
       }
-      }] : var.cloud == "azure" ? [{
-      name = "service-key-secret"
-      secret = {
-        secretName = "azure-service-key"
-    } }] : [{}]
+    }] : []
 
   }
 
