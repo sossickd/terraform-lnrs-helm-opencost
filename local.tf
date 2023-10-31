@@ -13,7 +13,7 @@ locals {
     serviceAccount = {
       create = true
 
-      annotations = var.cloud == "azure" && local.use_aad_workload_identity == true ? { "azure.workload.identity/client-id" = module.identity.client_id[0] } : {}
+      annotations = var.cloud == "azure" && local.use_aad_workload_identity == true ? { "azure.workload.identity/client-id" = module.identity[0].client_id } : {}
 
       automountServiceAccountToken = true
 
