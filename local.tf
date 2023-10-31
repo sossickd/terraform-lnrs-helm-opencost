@@ -162,36 +162,21 @@ locals {
       configMap = {
         name = "opencost-aws"
       }
-    }] : []
+      }] : var.cloud == "azure" ? [{
+      name = "custom-configs"
+      configMap = {
+        name = "opencost-azure"
+    } }] : [{}]
 
   }
 
-#  opencost_configmap_data = <<-EOT
-#    {
-#        "provider": "${var.cloud}",
-#        "description": "AWS Provider Configuration. Provides default values used if instance type or spot information is not found.",
-#        "CPU": "0.031611",
-#        "spotCPU": "0.006655",
-#        "RAM": "0.004237",
-#        "GPU": "0.95",
-#        "spotRAM": "0.000892",
-#        "storage": "0.000138888889",
-#        "zoneNetworkEgress": "0.01",
-#        "regionNetworkEgress": "0.01",
-#        "internetNetworkEgress": "0.143",
-#        "spotLabel": "kops.k8s.io/instancegroup",
-#        "spotLabelValue": "spotinstance-nodes",
-#        "awsSpotDataRegion": "${module.aws_integration[0].spotfeed-bucket-region}",
-#        "awsSpotDataBucket": "${module.aws_integration[0].spotfeed-bucket}",
-#        "awsSpotDataPrefix": "${var.aws.spot_data_prefix}",
-#        "athenaBucketName": "s3://${var.athena_bucket_name}",
-#        "athenaRegion": "${var.athena_region}",
-#        "athenaDatabase": "${var.athena_database}",
-#        "athenaTable": "${var.athena_table}",
-#        "athenaProjectID": "${var.aws.account_id}",
-#        "projectID": "${var.aws.account_id}"
-#    }
-#  EOT
+  opencost_configmap_data = <<-EOT
+    {
+        "provider": "${var.cloud}",
+        "description": "AWS Provider Configuration. Provides default values used if instance type or spot information is not found.",
+        "projectID": "${var.azure.subscription_id}"
+    }
+  EOT
 
   service_account_name = "opencost"
 
