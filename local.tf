@@ -4,7 +4,7 @@ locals {
 
   chart_version = "1.20.1"
 
-  use_aad_workload_identity = true
+  use_aad_workload_identity = false
 
   chart_values = {
 
