@@ -40,6 +40,8 @@ resource "kubernetes_config_map_v1_data" "terraform_modules" {
 }
 
 resource "kubernetes_config_map" "opencost" {
+  count = var.cloud == "azure" ? 1 : 0
+
   metadata {
     name      = "opencost-azure"
     namespace = var.namespace
