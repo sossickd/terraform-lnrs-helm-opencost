@@ -45,6 +45,8 @@ locals {
         extraEnv = var.cloud == "aws" ? {
           AWS_PRICING_URL = "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/eu-west-1/index.json"
           CONFIG_PATH     = "/tmp/custom-config"
+          } : var.cloud == "azure" ? {
+          CONFIG_PATH = "/tmp/custom-config"
         } : {}
 
         extraVolumeMounts = var.cloud == "aws" ? [{
