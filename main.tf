@@ -39,22 +39,22 @@ resource "kubernetes_config_map_v1_data" "terraform_modules" {
   ]
 }
 
-resource "kubernetes_config_map" "opencost" {
-  count = var.cloud == "aws" ? 1 : 0
-
-  metadata {
-    name      = "opencost-aws"
-    namespace = var.namespace
-  }
-
-  data = {
-    "aws.json" = local.opencost_configmap_data
-  }
-
-  depends_on = [
-    kubernetes_namespace.default
-  ]
-}
+#resource "kubernetes_config_map" "opencost" {
+#  count = var.cloud == "aws" ? 1 : 0
+#
+#  metadata {
+#    name      = "opencost-aws"
+#    namespace = var.namespace
+#  }
+#
+#  data = {
+#    "aws.json" = local.opencost_configmap_data
+#  }
+#
+#  depends_on = [
+#    kubernetes_namespace.default
+#  ]
+#}
 
 resource "helm_release" "default" {
   name      = var.release_name
@@ -73,7 +73,6 @@ resource "helm_release" "default" {
 
   depends_on = [
     kubernetes_namespace.default,
-    kubernetes_config_map.opencost,
     azurerm_role_definition.opencost_ratecard_reader,
     module.identity
   ]
