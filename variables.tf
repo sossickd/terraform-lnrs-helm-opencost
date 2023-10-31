@@ -72,30 +72,6 @@ variable "thanos_enabled" {
   default     = false
 }
 
-variable "athena_bucket_name" {
-  description = "Athena bucket name."
-  type        = string
-  nullable    = true
-}
-
-variable "athena_region" {
-  description = "Athena region."
-  type        = string
-  nullable    = true
-}
-
-variable "athena_database" {
-  description = "Athena database."
-  type        = string
-  nullable    = true
-}
-
-variable "athena_table" {
-  description = "Athena table."
-  type        = string
-  nullable    = true
-}
-
 variable "labels" {
   description = "Labels to be applied to all Kubernetes resources."
   type        = map(string)
