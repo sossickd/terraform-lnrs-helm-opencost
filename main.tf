@@ -56,19 +56,6 @@ resource "kubernetes_config_map" "opencost" {
   ]
 }
 
-module "aws_integration" {
-  count = var.cloud == "aws" ? 1 : 0
-
-  source = "./modules/aws-integration"
-
-  aws = {
-    account_id = var.aws.account_id
-    partition  = var.aws.partition
-  }
-
-  cluster_name = var.cluster_name
-}
-
 resource "helm_release" "default" {
   name      = var.release_name
   namespace = var.namespace
