@@ -88,8 +88,8 @@ resource "helm_release" "default" {
     kubernetes_namespace.default,
     kubernetes_config_map.opencost,
     module.iam_role,
-    module.aws_integration,
-    azurerm_role_definition.opencost_ratecard_reader,
-    module.identity
+    module.aws_integration
+#    azurerm_role_definition.opencost_ratecard_reader,
+#    module.identity
   ]
 }
