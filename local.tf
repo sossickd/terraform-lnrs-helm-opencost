@@ -37,8 +37,8 @@ locals {
           }
 
           limits = {
-            cpu    = "2000m"
-            memory = "2Gi"
+            cpu    = "1000m"
+            memory = "1Gi"
           }
         }
 
