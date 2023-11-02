@@ -141,20 +141,20 @@ locals {
 
       }
 
-    }
+      nodeSelector = {
+        "kubernetes.io/os" = "linux"
+        "lnrs.io/tier"     = "system"
+      }
 
-    nodeSelector = {
-      "kubernetes.io/os" = "linux"
-      "lnrs.io/tier"     = "system"
-    }
+      tolerations = concat([{
+        key      = "system"
+        operator = "Exists"
+        }], var.cloud == "azure" ? [{
+        key      = "CriticalAddonsOnly"
+        operator = "Exists"
+      }] : [])
 
-    tolerations = concat([{
-      key      = "system"
-      operator = "Exists"
-      }], var.cloud == "azure" ? [{
-      key      = "CriticalAddonsOnly"
-      operator = "Exists"
-    }] : [])
+    }
 
     extraVolumes = var.cloud == "aws" ? [{
       name = "custom-configs"
