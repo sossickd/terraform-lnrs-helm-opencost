@@ -90,6 +90,11 @@ resource "aws_s3_bucket_notification" "aws_put_s3_cur_notification" {
     events              = ["s3:ObjectCreated:*"]
     filter_prefix       = "opencost-prefix/${var.cluster_name}-opencost-report/${var.cluster_name}-cur-report/${var.cluster_name}-cur-report"
   }
+
+  depends_on = [
+    aws_s3_bucket.cur-athena
+  ]
+
 }
 
 #tfsec:ignore:aws-s3-enable-bucket-logging
