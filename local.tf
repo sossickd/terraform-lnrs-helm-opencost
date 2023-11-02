@@ -32,8 +32,8 @@ locals {
 
         resources = {
           requests = {
-            cpu    = "1000m"
-            memory = "1Gi"
+            cpu    = "500m"
+            memory = "500Mi"
           }
 
           limits = {
