@@ -75,6 +75,14 @@ locals {
         }
       }
 
+      cloudCost = {
+        enabled             = true
+        refreshRateHours    = 6
+        runWindowDays       = 3
+        monthToDateInterval = 6
+        queryWindowDays     = 7
+      }
+
       prometheus = {
         internal = {
           enabled = var.thanos_enabled == true ? false : true
