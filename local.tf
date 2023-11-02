@@ -2,7 +2,7 @@ locals {
   module_name    = "terraform-lnrs-helm-opencost"
   module_version = "1.0.0-rc.1"
 
-  chart_version = "1.20.1"
+  chart_version = "1.26.0"
 
   use_aad_workload_identity = false
 
