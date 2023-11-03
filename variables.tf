@@ -33,6 +33,8 @@ variable "azure" {
     location            = optional(string, null)
     subscription_id     = optional(string, null)
     resource_group_name = optional(string, null)
+    subnet_id           = optional(string, null)
+    azure_environment   = optional(string, "public")
   })
   nullable = false
   default  = {}

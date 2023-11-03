@@ -52,7 +52,8 @@ resource "kubernetes_config_map" "opencost" {
   }
 
   depends_on = [
-    kubernetes_namespace.default
+    kubernetes_namespace.default,
+    azurerm_subscription_cost_management_export.cost_report,
   ]
 }
 
@@ -73,6 +74,7 @@ resource "helm_release" "default" {
 
   depends_on = [
     kubernetes_namespace.default,
+    azurerm_subscription_cost_management_export.cost_report,
     kubernetes_config_map.opencost,
     azurerm_role_definition.opencost_ratecard_reader,
     module.identity
