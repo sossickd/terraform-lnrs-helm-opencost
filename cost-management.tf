@@ -1,7 +1,7 @@
 
 resource "azurerm_subscription_cost_management_export" "cost_report" {
   name                         = "${var.cluster_name}-cost-report"
-  subscription_id              = var.azure.subscription_id
+  subscription_id              = data.azurerm_subscription.current.id
   recurrence_type              = "Daily"
   recurrence_period_start_date = timestamp()
   recurrence_period_end_date   = timeadd(formatdate("YYYY-MM-DD'T'00:00:00Z", timestamp()), "43800h")

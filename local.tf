@@ -1,3 +1,6 @@
+data "azurerm_subscription" "current" {
+}
+
 locals {
   module_name    = "terraform-lnrs-helm-opencost"
   module_version = "1.0.0-rc.1"
@@ -187,7 +190,7 @@ locals {
         "internetNetworkEgress": "0.143",
         "spotLabel": "kops.k8s.io/instancegroup",
         "spotLabelValue": "spotinstance-nodes",
-        "azureSubscriptionID": "${var.azure.subscription_id}",
+        "azureSubscriptionID": "${data.azurerm_subscription.subscription_id}",
         "azureStorageAccount": "${azurerm_storage_account.cost_report.name}",
         "azureStorageAccessKey": "${azurerm_storage_account.cost_report.primary_access_key}",
         "azureStorageContainer": "${azurerm_storage_container.cost_report.name}",
