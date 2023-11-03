@@ -9,7 +9,7 @@ resource "azurerm_subscription_cost_management_export" "cost_report" {
 
   export_data_storage_location {
     container_id     = azurerm_storage_container.cost_report.resource_manager_id
-    root_folder_path = "/${var.cluster_name}-cost-report"
+    root_folder_path = "/root/${var.cluster_name}-cost-report"
   }
 
   export_data_options {
