@@ -2,10 +2,10 @@ resource "azurerm_role_definition" "opencost_ratecard_reader" {
   count = var.cloud == "azure" ? 1 : 0
 
   name        = "${var.cluster_name}-opencost"
-  scope       = "/subscriptions/${var.azure.subscription_id}"
+  scope       = "/subscriptions/${data.azurerm_subscription.current.subscription_id}"
   description = "Custom role for opencost to read the rate card"
 
-  assignable_scopes = ["/subscriptions/${var.azure.subscription_id}"]
+  assignable_scopes = ["/subscriptions/${data.azurerm_subscription.current.subscription_id}"]
 
   permissions {
     actions = [
@@ -39,7 +39,7 @@ module "identity" {
 
   roles = [{
     id    = azurerm_role_definition.opencost_ratecard_reader[0].role_definition_resource_id
-    scope = "/subscriptions/${var.azure.subscription_id}"
+    scope = "/subscriptions/${data.azurerm_subscription.current.subscription_id}"
   }]
 
   tags = var.tags
