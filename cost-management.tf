@@ -1,10 +1,11 @@
+resource "time_static" "current" {}
 
 resource "azurerm_subscription_cost_management_export" "cost_report" {
   name                         = "${var.cluster_name}-cost-report"
   subscription_id              = data.azurerm_subscription.current.id
   recurrence_type              = "Daily"
-  recurrence_period_start_date = timestamp()
-  recurrence_period_end_date   = timeadd(formatdate("YYYY-MM-DD'T'00:00:00Z", timestamp()), "43800h")
+  recurrence_period_start_date = local.current_time
+  recurrence_period_end_date   = local.cost_report_end_date
 
   export_data_storage_location {
     container_id     = azurerm_storage_container.cost_report.resource_manager_id

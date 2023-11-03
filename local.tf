@@ -9,6 +9,9 @@ locals {
 
   use_aad_workload_identity = false
 
+  current_time         = time_static.current.rfc3339
+  cost_report_end_date = timeadd(time_static.current.rfc3339, "43800h")
+
   chart_values = {
 
     nameOverride = "opencost"

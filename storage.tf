@@ -20,11 +20,11 @@ resource "azurerm_storage_account" "cost_report" {
 
   tags = var.tags
 
-#  network_rules {
-#    default_action             = "Deny"
-#    virtual_network_subnet_ids = [var.azure.subnet_id]
-#    bypass                     = ["AzureServices"]
-#  }
+  #  network_rules {
+  #    default_action             = "Deny"
+  #    virtual_network_subnet_ids = [var.azure.subnet_id]
+  #    bypass                     = ["AzureServices"]
+  #  }
 }
 
 resource "azurerm_storage_container" "cost_report" {
